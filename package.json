@@ -1,0 +1,21 @@
+{
+	"name": "web90-mindx",
+	"version": "1.0.0",
+	"description": "learn nodejs with thayhoang",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"start": "nodemon index.js"
+	},
+	"keywords": [
+		"nodejs",
+		"mindx",
+		"learn",
+		"nodejs"
+	],
+	"author": "hoangnm",
+	"license": "MIT",
+	"devDependencies": {
+		"nodemon": "^3.1.10"
+	}
+}
