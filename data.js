@@ -196,4 +196,5 @@ const orders = [
 		totalPrice: 1500000,
 	},
 ];
+
 export { customers, orders, products };

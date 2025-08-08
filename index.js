@@ -1,32 +1,27 @@
-import http from "http";
+import express from "express";
+import { customers, products, orders } from "./data.js";
 
-const foods = [
-	{
-		id: 1,
-		title: "Suon Xao chua ngot",
-		price: 100,
-	},
-	{
-		id: 2,
-		title: "nuoc loc",
-		price: 4,
-	},
-];
+const PORT = 8888;
 
-const callback = (request, res) => {
-	console.log(req.url);
-	console.log(req.method);
-	console.log(req.params);
+const app = express();
+
+app.get("/", (req, res) => {
+	res.send("endpoint!");
+});
+
+app.get("/login", (req, res) => {
+	res.send("login thanh cong!");
+});
+
+app.get("/customers", (req, res) => {
 	console.log(req.query);
-	console.log(req.body);
-	res.end("Hello mindX");
-};
+	res.send("Lay danh sach khach hang");
+});
 
-// * Định tuyến = phân chia các công việc thành các tuyến đường riêng để xử lý tuỳ theo yêu cầu từ client.
+app.get("/customers/:id", (req, res) => {
+	res.send("Lay thong tin khach hang co id la: ", req.params.id);
+});
 
-// GET, POST, PUT, PATCH, DELETE
-const app = http.createServer(callback);
-
-app.listen(8080, () => {
-	console.log("Server is running!");
+app.listen(PORT, () => {
+	console.log(`Server is running on http://localhost:${PORT}`);
 });
