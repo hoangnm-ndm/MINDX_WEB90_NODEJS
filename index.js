@@ -13,15 +13,13 @@ const foods = [
 	},
 ];
 
-const callback = (request, response) => {
-	console.log(typeof response);
-	console.log({ response });
-	response.write("hello");
-	response.write("hello");
-	response.write("hello");
-	response.write("hello");
-	response.end("Hello mindX");
-	// response.end("Hello mindX");
+const callback = (request, res) => {
+	console.log(req.url);
+	console.log(req.method);
+	console.log(req.params);
+	console.log(req.query);
+	console.log(req.body);
+	res.end("Hello mindX");
 };
 
 // * Định tuyến = phân chia các công việc thành các tuyến đường riêng để xử lý tuỳ theo yêu cầu từ client.
