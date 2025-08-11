@@ -17,9 +17,8 @@ app.use(express.json());
 // * res.send() tự động biến đổi dữ liệu khi response
 
 app.get("/users/:id", (req, res) => {
-	console.log(req.params);
 	const user = users.find((item) => item.id == req.params.id);
-	return createResponse(res, 200, "Lấy user theo id thành công!", user);
+	createResponse(res, 200, "Lấy user theo id thành công!", user);
 });
 
 // * /users?maxAge=20
