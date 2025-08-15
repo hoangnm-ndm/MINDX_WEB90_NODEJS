@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "id": "5bf0",
+      "title": "Iphone 14 promax",
+      "price": 4000,
+      "description": "Mo ta san pham"
+    },
+    {
+      "id": "7eed",
+      "title": "Iphone 14 promax",
+      "price": 2000,
+      "description": "Mo ta san pham"
+    }
+  ]
+}
