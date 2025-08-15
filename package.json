@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"start": "nodemon index.js"
+		"start": "nodemon --experimental-specifier-resolution=node index.js",
+		"dev": "concurrently \"json-server --watch db.json --port 3000\" \"nodemon --experimental-specifier-resolution=node index.js\""
 	},
 	"keywords": [
 		"nodejs",
@@ -16,6 +17,9 @@
 	"author": "hoangnm",
 	"license": "MIT",
 	"devDependencies": {
+		"axios": "^1.11.0",
+		"concurrently": "^9.2.0",
+		"json-server": "^1.0.0-beta.3",
 		"nodemon": "^3.1.10"
 	},
 	"dependencies": {
