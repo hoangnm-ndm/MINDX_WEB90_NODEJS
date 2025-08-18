@@ -1,5 +1,4 @@
 import { createResponse } from "../../common/configs/response.config.js";
-import instance from "../../common/services/axios.js";
 import Product from "./product.model.js";
 
 export const getAllProduct = async (req, res) => {
