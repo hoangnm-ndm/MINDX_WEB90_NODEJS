@@ -1,13 +1,14 @@
 import { createResponse } from "../../common/configs/response.config.js";
+import MES_PRODUCT from "./product.message.js";
 import Product from "./product.model.js";
 
 export const getAllProduct = async (req, res) => {
 	try {
 		const products = await Product.find();
 		if (!products || products.length === 0) {
-			createResponse(res, 400, "Lay danh sach that bai!");
+			createResponse(res, 400, MES_PRODUCT.GET_ERROR);
 		}
-		createResponse(res, 200, "Lay danh sach san pham thanh cong", products);
+		createResponse(res, 200, MES_PRODUCT.GET_SUCCESS, products);
 	} catch (error) {
 		console.log(error);
 	}
@@ -17,9 +18,9 @@ export const getProduct = async (req, res) => {
 	try {
 		const product = await Product.findById(req.params.id);
 		if (!product) {
-			createResponse(res, 400, "Khong tim thay!");
+			createResponse(res, 400, MES_PRODUCT.GET_ERROR);
 		}
-		createResponse(res, 200, "Lay san pham thanh cong!", product);
+		createResponse(res, 200, MES_PRODUCT.GET_SUCCESS, product);
 	} catch (error) {
 		console.log(error);
 	}
@@ -30,9 +31,9 @@ export const removeProduct = async (req, res) => {
 		const product = await Product.findByIdAndDelete(req.params.id);
 
 		if (!product) {
-			createResponse(res, 400, "Xoa khong thanh cong!");
+			createResponse(res, 400, MES_PRODUCT.DELETE_ERROR);
 		}
-		createResponse(res, 200, "Xoa san pham thanh cong!", product);
+		createResponse(res, 200, MES_PRODUCT.DELETE_SUCCESS, product);
 	} catch (error) {
 		console.log(error);
 	}
