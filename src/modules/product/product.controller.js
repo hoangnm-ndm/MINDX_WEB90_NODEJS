@@ -1,10 +1,10 @@
 import { createResponse } from "../../common/configs/response.config.js";
 import MESSAGES from "./product.message.js";
-import Product from "./product.model.js";
+import * as productService from "./product.service.js";
 
 export const getAllProduct = async (req, res) => {
 	try {
-		const products = await Product.find();
+		const products = await productService.getAllProductService();
 		if (!products || products.length === 0) {
 			createResponse(res, 400, MESSAGES.GET_FAILURE);
 		}
@@ -16,7 +16,7 @@ export const getAllProduct = async (req, res) => {
 
 export const getProduct = async (req, res) => {
 	try {
-		const product = await Product.findById(req.params.id);
+		const product = await productService.getProductService(req.params.id);
 		if (!product) {
 			createResponse(res, 400, MESSAGES.NOT_FOUND);
 		}
@@ -28,7 +28,7 @@ export const getProduct = async (req, res) => {
 
 export const removeProduct = async (req, res) => {
 	try {
-		const product = await Product.findByIdAndDelete(req.params.id);
+		const product = await productService.removeProductService(req.params.id);
 
 		if (!product) {
 			createResponse(res, 400, MESSAGES.DELETE_FAILURE);
@@ -41,7 +41,7 @@ export const removeProduct = async (req, res) => {
 
 export const createProduct = async (req, res) => {
 	try {
-		const product = await Product.create(req.body);
+		const product = await productService.createProductService(req.body);
 		if (!product) {
 			createResponse(res, 400, MESSAGES.CREATE_FAILURE);
 		}
@@ -53,9 +53,7 @@ export const createProduct = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
 	try {
-		const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-			new: true,
-		});
+		const product = await productService.updateProductService(req.params.id, req.body);
 		if (!product) {
 			createResponse(res, 400, MESSAGES.UPDATE_FAILURE);
 		}
