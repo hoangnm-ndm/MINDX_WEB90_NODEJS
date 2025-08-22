@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"start": "nodemon --experimental-specifier-resolution=node index.js",
-		"dev": "concurrently \"json-server --watch db.json --port 3000\" \"nodemon --experimental-specifier-resolution=node index.js\""
+		"dev": "nodemon --experimental-specifier-resolution=node index.js"
 	},
 	"keywords": [
 		"nodejs",
@@ -26,6 +26,7 @@
 		"dotenv": "^17.2.1",
 		"express": "^5.1.0",
 		"mongoose": "^8.17.1",
-		"uuid": "^11.1.0"
+		"uuid": "^11.1.0",
+		"zod": "^4.0.17"
 	}
 }
