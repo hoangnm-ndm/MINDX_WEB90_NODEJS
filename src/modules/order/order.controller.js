@@ -1,5 +1,3 @@
-import instance from "../../common/services/axios";
-
 export const getOrderByCustomerId = async (req, res) => {
 	try {
 		const { customerId } = req.params;
