@@ -1,4 +1,4 @@
-import * as z from "zod";
+import { z } from "zod";
 
 // Chia thành 2 schemas: create and update
 export const createProductSchema = z
