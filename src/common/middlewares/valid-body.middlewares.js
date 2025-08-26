@@ -1,4 +1,4 @@
-import { createResponse } from "../configs/response.config.js";
+import { throwError } from "../configs/error.config";
 
 const validBodyRequest = (schema) => (req, res, next) => {
 	try {
@@ -6,12 +6,11 @@ const validBodyRequest = (schema) => (req, res, next) => {
 		req.body = data;
 		next();
 	} catch (error) {
-		console.log(error.message);
 		if (error.errors && Array.isArray(error.errors)) {
-			const allMessages = error.errors.map((err) => err.path + ": " + err.message).join("; ");
-			next(createResponse(res, 400, allMessages));
+			const allMessages = error.errors.map((err) => `${err.path}: ${err.message}`).join("; ");
+			return throwError(400, allMessages || "Invalid request");
 		}
-		return next(createResponse(res, 400, "Invalid request"));
+		return throwError(400, "Invalid request");
 	}
 };
 
