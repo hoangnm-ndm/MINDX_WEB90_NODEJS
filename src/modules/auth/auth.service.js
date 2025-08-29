@@ -1,4 +1,5 @@
 import { throwError } from "../../common/configs/error.config.js";
+import { generateToken } from "../../common/utils/jwt.js";
 import { comparePassword, hashPassword } from "../../common/utils/password-handler.js";
 import User from "../user/user.model.js";
 import MESSAGES from "./auth.message";
@@ -28,12 +29,11 @@ export const authLoginService = async (userData) => {
 	if (!existingUser) {
 		throwError(400, MESSAGES.INVALID_CREDENTIALS);
 	}
-	console.log(existingUser);
 	const isPasswordValid = comparePassword(password, existingUser.password);
 	if (!isPasswordValid) {
 		throwError(400, MESSAGES.INVALID_CREDENTIALS);
 	}
-	// Tạo JWT (JSON Web Token) --- IGNORE ---
+	const accessToken = generateToken({ id: existingUser._id, role: existingUser.role });
 	existingUser.password = undefined;
-	return existingUser;
+	return { user: existingUser, accessToken };
 };

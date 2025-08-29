@@ -4,4 +4,4 @@ dotenv.config({
 	// configs option
 });
 
-export const { PORT, DB_URI, HOST } = process.env;
+export const { PORT, DB_URI, HOST, JWT_SECRET } = process.env;
