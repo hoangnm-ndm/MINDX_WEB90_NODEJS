@@ -6,6 +6,7 @@ export const createProductSchema = z
 		title: z.string().min(1, "Title is required"),
 		price: z.number().min(0, "Price must be a positive number"),
 		description: z.string().optional(),
+		category: z.string(),
 	})
 	.strict();
 

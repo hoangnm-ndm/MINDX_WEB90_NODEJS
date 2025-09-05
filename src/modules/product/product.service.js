@@ -1,12 +1,19 @@
 import Product from "./product.model.js";
 
 export const getAllProductService = async () => {
-	const products = await Product.find();
+	// * Cách 1: Populate với 1 field
+	// const products = await Product.find().populate("category", "title").populate("brand", "title");
+
+	// * Cách 2: Populate với nhiều field
+	const products = await Product.find().populate([
+		{ path: "category", select: "title" },
+		// { path: "brand", select: "title" },
+	]);
 	return products;
 };
 
 export const getProductService = async (id) => {
-	const product = await Product.findById(id);
+	const product = await Product.findById(id).populate("category", "title");
 	return product;
 };
 

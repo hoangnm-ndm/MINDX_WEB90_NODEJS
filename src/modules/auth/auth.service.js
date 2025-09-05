@@ -2,7 +2,7 @@ import { throwError } from "../../common/configs/error.config.js";
 import { generateToken } from "../../common/utils/jwt.js";
 import { comparePassword, hashPassword } from "../../common/utils/password-handler.js";
 import User from "../user/user.model.js";
-import MESSAGES from "./auth.message";
+import MESSAGES from "./auth.message.js";
 
 export const autRegisterService = async (userData) => {
 	/**

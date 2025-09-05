@@ -1,4 +1,4 @@
-import { throwError } from "../configs/error.config";
+import { throwError } from "../configs/error.config.js";
 
 const validBodyRequest = (schema) => (req, res, next) => {
 	try {

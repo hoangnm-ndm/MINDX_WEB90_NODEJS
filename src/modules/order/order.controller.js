@@ -1,4 +1,4 @@
-import handleAsync from "../../common/utils/handle-async";
+import handleAsync from "../../common/utils/handle-async.js";
 
 export const getOrderByCustomerId = handleAsync(async (req, res) => {
 	const { customerId } = req.params;

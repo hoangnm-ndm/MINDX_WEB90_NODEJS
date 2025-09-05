@@ -1,7 +1,7 @@
-import { createResponse } from "../../common/configs/response.config";
-import handleAsync from "../../common/utils/handle-async";
-import MESSAGES from "./auth.message";
-import { authLoginService, autRegisterService } from "./auth.service";
+import { createResponse } from "../../common/configs/response.config.js";
+import handleAsync from "../../common/utils/handle-async.js";
+import MESSAGES from "./auth.message.js";
+import { authLoginService, autRegisterService } from "./auth.service.js";
 
 export const authRegister = handleAsync(async (req, res) => {
 	const newUser = await autRegisterService(req.body);
