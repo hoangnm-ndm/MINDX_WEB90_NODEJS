@@ -5,12 +5,15 @@ import { HOST, PORT } from "./src/common/configs/environment.config.js";
 import errorHandler from "./src/common/middlewares/error.middleware.js";
 import notFoundHandler from "./src/common/middlewares/not-found.middleware.js";
 import jsonValidator from "./src/common/middlewares/json-valid.middleware.js";
+import cors from "cors";
 
 const app = express();
 
 app.use(express.json());
 
 connectDB();
+
+app.use(cors({}));
 
 app.use("/api", router);
 
