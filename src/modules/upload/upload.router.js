@@ -9,7 +9,11 @@ const upload = multer({
 });
 
 const uploadRoutes = Router();
+
+// POST http://localhost:8080/api/upload/file
 uploadRoutes.post("/file", upload.single("file"), uploadFileController);
-uploadRoutes.post("/files", upload.array("files", 10), uploadFilesController); // Giới hạn 10 tệp
+
+// POST http://localhost:8080/api/upload/files
+uploadRoutes.post("/files", upload.array("files", 10), uploadFilesController);
 
 export default uploadRoutes;

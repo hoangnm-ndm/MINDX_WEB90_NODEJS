@@ -12,3 +12,7 @@ export const uploadFilesController = handleAsync(async (req, res, next) => {
 	const result = await uploadFilesService(req.files);
 	createResponse(res, 200, MESSAGES.UPLOAD_SUCCESS, result);
 });
+
+export const destroyedFileController = handleAsync(async (req, res, next) => {});
+
+export const destroyedFilesController = handleAsync(async (req, res, next) => {});
