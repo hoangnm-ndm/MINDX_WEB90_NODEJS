@@ -1,37 +1,37 @@
 {
-	"name": "web90-mindx",
-	"version": "1.0.0",
-	"description": "learn nodejs with thayhoang",
-	"main": "index.js",
-	"type": "module",
-	"scripts": {
-		"start": "nodemon --experimental-specifier-resolution=node index.js",
-		"dev": "nodemon --experimental-specifier-resolution=node index.js"
-	},
-	"keywords": [
-		"nodejs",
-		"mindx",
-		"learn",
-		"nodejs"
-	],
-	"author": "hoangnm",
-	"license": "MIT",
-	"devDependencies": {
-		"axios": "^1.11.0",
-		"concurrently": "^9.2.0",
-		"json-server": "^1.0.0-beta.3",
-		"nodemon": "^3.1.10"
-	},
-	"dependencies": {
-		"bcryptjs": "^3.0.2",
-		"cloudinary": "^2.7.0",
-		"cors": "^2.8.5",
-		"dotenv": "^17.2.1",
-		"express": "^5.1.0",
-		"jsonwebtoken": "^9.0.2",
-		"mongoose": "^8.17.1",
-		"multer": "^2.0.2",
-		"uuid": "^11.1.0",
-		"zod": "3.5"
-	}
+  "name": "web90-mindx",
+  "version": "1.0.0",
+  "description": "learn nodejs with thayhoang",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon --experimental-specifier-resolution=node index.js",
+    "dev": "nodemon --experimental-specifier-resolution=node index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "mindx",
+    "learn",
+    "nodejs"
+  ],
+  "author": "hoangnm",
+  "license": "MIT",
+  "devDependencies": {
+    "axios": "^1.11.0",
+    "concurrently": "^9.2.0",
+    "json-server": "^1.0.0-beta.3",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.1",
+    "multer": "^2.0.2",
+    "uuid": "^11.1.0",
+    "zod": "3.5"
+  }
 }
