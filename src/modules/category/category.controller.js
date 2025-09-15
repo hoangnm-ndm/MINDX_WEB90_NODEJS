@@ -4,11 +4,11 @@ import MESSAGES from "./category.message.js";
 import * as categoryService from "./category.service.js";
 
 export const getAllCategory = handleAsync(async (req, res) => {
-	const categories = await categoryService.getAllCategoryService();
+	const { data: categories, meta } = await categoryService.getAllCategoryService(req.query);
 	if (!categories || categories.length === 0) {
 		createResponse(res, 400, MESSAGES.GET_FAILURE);
 	}
-	createResponse(res, 200, MESSAGES.GET_SUCCESS, categories);
+	createResponse(res, 200, MESSAGES.GET_SUCCESS, categories, meta);
 });
 
 // export const getCategory = handleAsync(async (req, res) => {
