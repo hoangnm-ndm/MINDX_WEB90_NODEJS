@@ -12,28 +12,34 @@ export const getAllProductService = async (query) => {
 
 	// * Xử lý phân trang
 
-	const totalItems = await Product.countDocuments();
-	const { page = 1, limit = 12 } = query;
+	// const totalItems = await Product.countDocuments();
+	// const { page = 1, limit = 12 } = query;
 
-	const totalPages = Math.ceil(totalItems / limit);
-	// // Tính toán vị trí bắt đầu của trang hiện tại, trừ 1 vì mảng bắt đầu từ vị trí 0
-	const skip = (page - 1) * limit;
-	const products = await Product.find()
-		.skip(skip)
-		.limit(limit)
-		.populate([
-			{ path: "category", select: "title" },
-			// { path: "brand", select: "title" },
-		]);
-	return {
-		products,
-		meta: {
-			totalItems,
-			totalPages,
-			currentPage: Number(page),
-			pageSize: Number(limit),
-		},
-	};
+	// const totalPages = Math.ceil(totalItems / limit);
+	// // // Tính toán vị trí bắt đầu của trang hiện tại, trừ 1 vì mảng bắt đầu từ vị trí 0
+	// const skip = (page - 1) * limit;
+	// const products = await Product.find()
+	// 	.skip(skip)
+	// 	.limit(limit)
+	// 	.populate([
+	// 		{ path: "category", select: "title" },
+	// 		// { path: "brand", select: "title" },
+	// 	]);
+	// return {
+	// 	products,
+	// 	meta: {
+	// 		totalItems,
+	// 		totalPages,
+	// 		currentPage: Number(page),
+	// 		pageSize: Number(limit),
+	// 	},
+	// };
+
+	// Sử dụng query builder
+	const { data: products, meta } = await queryBuilder(Product, query, {
+		populate: [{ path: "category", select: "title" }],
+	});
+	return { products, meta };
 };
 
 export const getProductService = async (id) => {
