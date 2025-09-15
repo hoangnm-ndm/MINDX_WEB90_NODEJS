@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import MES_COMMON from "../configs/messages.config";
+import MES_COMMON from "../configs/messages.config.js";
 
 /**
  *

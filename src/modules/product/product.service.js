@@ -1,3 +1,4 @@
+import { queryBuilder } from "../../common/utils/query-builder.js";
 import Product from "./product.model.js";
 
 export const getAllProductService = async (query) => {
