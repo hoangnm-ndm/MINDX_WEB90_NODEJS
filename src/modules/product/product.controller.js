@@ -4,11 +4,13 @@ import MESSAGES from "./product.message.js";
 import * as productService from "./product.service.js";
 
 export const getAllProduct = handleAsync(async (req, res) => {
-	const products = await productService.getAllProductService();
+	const { products, meta } = await productService.getAllProductService(req.query);
+	console.log(products, meta);
+
 	if (!products || products.length === 0) {
 		createResponse(res, 400, MESSAGES.GET_FAILURE);
 	}
-	createResponse(res, 200, MESSAGES.GET_SUCCESS, products);
+	createResponse(res, 200, MESSAGES.GET_SUCCESS, products, meta);
 });
 
 export const getProduct = handleAsync(async (req, res) => {
